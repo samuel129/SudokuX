@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cecpqpfdwe7v4"]
+
+[ext_resource type="Script" uid="uid://b1u4tipy30lg0" path="res://scripts/game/game.gd" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://dtpsy56kewlv1" path="res://scripts/ui/sudoku-bg.png" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://ot4uic24tjr8" path="res://scripts/sudoku/renderer.gd" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://btgusqc41vxvu" path="res://scripts/ui/numpad.png" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cpex6yyv362gt" path="res://scenes/numpad_cell.tscn" id="5_iywne"]
+
+[node name="Game" type="Node2D" unique_id=1765075398]
+script = ExtResource("1_uwrxv")
+
+[node name="Renderer" type="Node" parent="." unique_id=943441402]
+script = ExtResource("3_lnu2h")
+
+[node name="SudokuBg" type="Sprite2D" parent="." unique_id=844302857]
+position = Vector2(360, 238.5)
+texture = ExtResource("2_yqjtg")
+
+[node name="Numpad" type="Sprite2D" parent="." unique_id=1618846553]
+z_index = 1
+position = Vector2(585, 274)
+texture = ExtResource("4_lbhrr")
+
+[node name="Panel1" parent="Numpad" unique_id=338491664 instance=ExtResource("5_iywne")]
+offset_left = -71.0
+offset_top = -96.0
+offset_right = -25.0
+offset_bottom = -51.0
+
+[node name="Panel2" parent="Numpad" unique_id=1763961284 instance=ExtResource("5_iywne")]
+offset_left = -23.0
+offset_top = -96.0
+offset_bottom = -51.0
+
+[node name="Panel3" parent="Numpad" unique_id=414450671 instance=ExtResource("5_iywne")]
+offset_left = 25.0
+offset_top = -96.0
+offset_right = 71.0
+offset_bottom = -51.0
+
+[node name="Panel4" parent="Numpad" unique_id=1947271282 instance=ExtResource("5_iywne")]
+offset_left = -70.0
+offset_top = -48.0
+offset_right = -24.0
+offset_bottom = -3.0
+
+[node name="Panel5" parent="Numpad" unique_id=115292741 instance=ExtResource("5_iywne")]
+offset_left = -23.0
+offset_top = -48.0
+offset_bottom = -3.0
+
+[node name="Panel6" parent="Numpad" unique_id=1074038910 instance=ExtResource("5_iywne")]
+offset_left = 25.0
+offset_top = -48.0
+offset_right = 71.0
+offset_bottom = -3.0
+
+[node name="Panel7" parent="Numpad" unique_id=955398849 instance=ExtResource("5_iywne")]
+offset_left = -71.0
+offset_top = 0.0
+offset_right = -25.0
+offset_bottom = 46.0
+
+[node name="Panel8" parent="Numpad" unique_id=938998532 instance=ExtResource("5_iywne")]
+offset_left = -23.0
+offset_top = 0.0
+offset_bottom = 46.0
+
+[node name="Panel9" parent="Numpad" unique_id=1378853265 instance=ExtResource("5_iywne")]
+offset_left = 25.0
+offset_top = 0.0
+offset_right = 71.0
+offset_bottom = 46.0
+
+[node name="PanelX" parent="Numpad" unique_id=2017552999 instance=ExtResource("5_iywne")]
+offset_left = -23.0
+offset_top = 49.0
+offset_bottom = 95.0

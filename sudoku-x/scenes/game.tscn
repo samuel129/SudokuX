@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://cecpqpfdwe7v4"]
+
+[ext_resource type="Script" uid="uid://b1u4tipy30lg0" path="res://scripts/game/game.gd" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://dtpsy56kewlv1" path="res://scripts/ui/sudoku-bg.png" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://ot4uic24tjr8" path="res://scripts/sudoku/renderer.gd" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://btgusqc41vxvu" path="res://scripts/ui/numpad.png" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cpex6yyv362gt" path="res://scenes/numpad_cell.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://culiuoyjfxkow" path="res://scripts/sudoku/exit_numpad_area.gd" id="6_p57ef"]
+[ext_resource type="Texture2D" uid="uid://mur3cwbsyf2k" path="res://scripts/ui/redo.png" id="7_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://gpkkgul724b0" path="res://scripts/ui/undo.png" id="8_gee14"]
+[ext_resource type="Texture2D" uid="uid://cvnn5m4od7jjk" path="res://scripts/ui/load.png" id="9_vtaks"]
+[ext_resource type="Texture2D" uid="uid://dgmehg47vh87a" path="res://scripts/ui/save.png" id="10_kvpfn"]
+[ext_resource type="Script" uid="uid://v0n3iuah4me8" path="res://scripts/sudoku/file_dialog.gd" id="11_kvpfn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5sy4"]
+size = Vector2(120, 60)
+
+[node name="Game" type="Node2D" unique_id=1765075398]
+script = ExtResource("1_uwrxv")
+
+[node name="Renderer" type="Node" parent="." unique_id=943441402]
+script = ExtResource("3_lnu2h")
+
+[node name="SudokuBg" type="Sprite2D" parent="." unique_id=844302857]
+position = Vector2(360, 238.5)
+texture = ExtResource("2_yqjtg")
+
+[node name="Numpad" type="Sprite2D" parent="." unique_id=1618846553]
+visible = false
+z_index = 1
+position = Vector2(582, 162)
+texture = ExtResource("4_lbhrr")
+
+[node name="Panel1" parent="Numpad" unique_id=338491664 instance=ExtResource("5_iywne")]
+offset_left = -71.0
+offset_top = -96.0
+offset_right = -25.0
+offset_bottom = -51.0
+
+[node name="Panel2" parent="Numpad" unique_id=1763961284 instance=ExtResource("5_iywne")]
+offset_left = -23.0
+offset_top = -96.0
+offset_bottom = -51.0
+
+[node name="Panel3" parent="Numpad" unique_id=414450671 instance=ExtResource("5_iywne")]
+offset_left = 25.0
+offset_top = -96.0
+offset_right = 71.0
+offset_bottom = -51.0
+
+[node name="Panel4" parent="Numpad" unique_id=1947271282 instance=ExtResource("5_iywne")]
+offset_left = -70.0
+offset_top = -48.0
+offset_right = -24.0
+offset_bottom = -3.0
+
+[node name="Panel5" parent="Numpad" unique_id=115292741 instance=ExtResource("5_iywne")]
+offset_left = -23.0
+offset_top = -48.0
+offset_bottom = -3.0
+
+[node name="Panel6" parent="Numpad" unique_id=1074038910 instance=ExtResource("5_iywne")]
+offset_left = 25.0
+offset_top = -48.0
+offset_right = 71.0
+offset_bottom = -3.0
+
+[node name="Panel7" parent="Numpad" unique_id=955398849 instance=ExtResource("5_iywne")]
+offset_left = -71.0
+offset_top = 0.0
+offset_right = -25.0
+offset_bottom = 46.0
+
+[node name="Panel8" parent="Numpad" unique_id=938998532 instance=ExtResource("5_iywne")]
+offset_left = -23.0
+offset_top = 0.0
+offset_bottom = 46.0
+
+[node name="Panel9" parent="Numpad" unique_id=1378853265 instance=ExtResource("5_iywne")]
+offset_left = 25.0
+offset_top = 0.0
+offset_right = 71.0
+offset_bottom = 46.0
+
+[node name="Panel0" parent="Numpad" unique_id=2017552999 instance=ExtResource("5_iywne")]
+offset_left = -23.0
+offset_top = 49.0
+offset_bottom = 95.0
+
+[node name="Exit_Numpad_Area" type="Area2D" parent="." unique_id=1737934324]
+script = ExtResource("6_p57ef")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Exit_Numpad_Area" unique_id=563026819]
+polygon = PackedVector2Array(0, 0, 720, 0, 720, 478, -1, 478, 0, 226, 16, 226, 17, 461, 463, 462, 462, 16, 15, 15, 17, 217, -1, 217)
+
+[node name="Redo" type="Area2D" parent="." unique_id=172694538]
+position = Vector2(117, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Redo" unique_id=1558027260]
+position = Vector2(537, 432)
+shape = SubResource("RectangleShape2D_u5sy4")
+
+[node name="Redo" type="Sprite2D" parent="Redo" unique_id=1062096437]
+position = Vector2(537, 432)
+texture = ExtResource("7_u5sy4")
+
+[node name="Undo" type="Area2D" parent="." unique_id=1329445712]
+position = Vector2(-130, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Undo" unique_id=904635534]
+position = Vector2(659, 433)
+shape = SubResource("RectangleShape2D_u5sy4")
+
+[node name="Undo" type="Sprite2D" parent="Undo" unique_id=130819959]
+position = Vector2(658, 432)
+texture = ExtResource("8_gee14")
+
+[node name="Load" type="Area2D" parent="." unique_id=1780660523]
+position = Vector2(117, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Load" unique_id=991401077]
+position = Vector2(474, 62)
+shape = SubResource("RectangleShape2D_u5sy4")
+
+[node name="Load2" type="Sprite2D" parent="Load" unique_id=1165998951]
+position = Vector2(474, 62)
+texture = ExtResource("9_vtaks")
+
+[node name="Save" type="Area2D" parent="." unique_id=2004321057]
+position = Vector2(117, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Save" unique_id=1485675825]
+position = Vector2(474, 214)
+shape = SubResource("RectangleShape2D_u5sy4")
+
+[node name="Save" type="Sprite2D" parent="Save" unique_id=954484454]
+position = Vector2(474, 214)
+texture = ExtResource("10_kvpfn")
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=1594429933]
+oversampling_override = 1.0
+position = Vector2i(40, 70)
+theme_type_variation = &"*.txt"
+access = 2
+script = ExtResource("11_kvpfn")
+
+[connection signal="input_event" from="Exit_Numpad_Area" to="." method="_on_exit_numpad_area_input_event"]
+[connection signal="input_event" from="Redo" to="." method="_on_redo_input_event"]
+[connection signal="input_event" from="Undo" to="." method="_on_undo_input_event"]
+[connection signal="input_event" from="Load" to="." method="_on_load_input_event"]
+[connection signal="input_event" from="Save" to="." method="_on_save_input_event"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
